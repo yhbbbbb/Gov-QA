@@ -1,0 +1,5 @@
+flask==2.2.5
+flask-cors==3.0.10
+requests==2.31.0  # 新增：用于发送API请求
+jieba==0.42.1
+numpy==1.21.6  # 适配Python 3.7的数值计算库版本
