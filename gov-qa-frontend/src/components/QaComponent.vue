@@ -1,9 +1,9 @@
 <template>
-  <div class="qa-container"></div>
+  <div class="qa-container">
     <!-- 合规提示 -->
     <div class="compliance-tip">
-      本系统仅提供政务政策咨询参考，具体以官方最新政策为准
-    &lt;/div&gt;
+      本系统仅提供政务政策咨询参考，具体以官方最新政策为准!
+    </div>
 
     <!-- 问答区域 -->
     <div class="chat-area">
@@ -24,7 +24,9 @@
       <el-button type="primary" @click="sendMessage" style="margin-left: 10px;">发送</el-button>
       <el-button type="text" @click="switchToManual" style="margin-left: 10px;">人工咨询</el-button>
     </div>
+
   </div>
+
 </template>
 
 <script setup>
@@ -55,7 +57,7 @@ const sendMessage = async () => {
     // 添加助手回复到列表
     messageList.value.push({ role: 'assistant', content: res.data.answer });
     // 置信度低于阈值提示人工咨询
-    if (res.data.confidence < 0.85) {
+    if (res.data.confidence < 0.80) {
       ElMessage.info('当前回答置信度较低，建议咨询人工客服');
     }
   } catch (error) {
@@ -73,7 +75,7 @@ const switchToManual = () => {
 <style scoped>
 .qa-container {
   width: 800px;
-  margin: 50px auto;
+  margin: 10px auto;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
   padding: 20px;
