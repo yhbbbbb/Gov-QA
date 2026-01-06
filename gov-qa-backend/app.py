@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:8080"}})
 
 # 注册API蓝图
-app.register_blueprint(qa_bp)
+app.register_blueprint(qa_bp, url_prefix='/api')
 
 if __name__ == '__main__':
     # 本地运行Flask服务
